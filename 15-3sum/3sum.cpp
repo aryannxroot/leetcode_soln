@@ -9,6 +9,10 @@ public:
         set<vector<int>> st; 
         for(int i = 0; i < n ; i++)
         {
+            if(i>0 && nums[i] == nums[i-1])
+            {
+                continue;
+            }
             int j = i+1 ;
             int k = n-1 ;
             
