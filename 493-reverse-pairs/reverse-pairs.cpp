@@ -1,6 +1,6 @@
 class Solution {
 public:
-    int cnt = 0;
+    int cnt = 0; //Global variable to count the pairs
     void merge(vector<long long> &arr, int low, int mid, int high) {
         vector<long long> temp; // temporary array
         int left = low;      // starting index of left half of arr
@@ -37,6 +37,7 @@ public:
             arr[i] = temp[i - low];
         }
     }
+    // function to count the pairs before merging
     void countPairs(vector<long long> &arr, int low, int mid, int high)
     {
         int right = mid + 1;
