@@ -8,7 +8,7 @@ public:
         {
             int mid = floor((low + high)/2);
             if(nums[mid] == target)     return true;
-            
+            //edge case arr[low] = arr[mid] = arr[high]
             if (nums[low] == nums[mid] && nums[mid] == nums[high]) {
                 low = low + 1;
                 high = high - 1;
