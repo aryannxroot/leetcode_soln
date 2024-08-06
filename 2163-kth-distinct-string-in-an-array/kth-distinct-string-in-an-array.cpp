@@ -4,6 +4,7 @@ public:
         int n = arr.size();
         map<string,int> mpp;
         vector<string> ans;
+        
         for(string s : arr)
         {
             mpp[s]++;
@@ -20,7 +21,5 @@ public:
 
         return ans.size() >= k ? ans[k-1] : "" ; 
 
-        
-        return arr[0];
     }
 };
