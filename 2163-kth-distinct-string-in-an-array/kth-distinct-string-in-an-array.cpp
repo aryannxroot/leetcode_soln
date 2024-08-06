@@ -1,9 +1,9 @@
 class Solution {
 public:
     string kthDistinct(vector<string>& arr, int k) {
+        
         int n = arr.size();
         map<string,int> mpp;
-        vector<string> ans;
 
         for(string s : arr)
         {
@@ -12,11 +12,11 @@ public:
         
         for(string s : arr)
         {
-            if(mpp[s] == 1)
-                ans.push_back(s); 
+            if(mpp[s] == 1 && --k == 0)
+                return s; 
         }
 
-        return ans.size() >= k ? ans[k-1] : "" ; 
+        return "" ; 
 
     }
 };
