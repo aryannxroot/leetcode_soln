@@ -8,18 +8,18 @@ private:
 
         if (dp[i][j] != -1) return dp[i][j];
 
-        char firstLetter = s[i];
+        char f = s[i];
         
-        int answer = 1 + fun(i + 1, j, s, dp);
+        int ans = 1 + fun(i + 1, j, s, dp);
         for (int k = i + 1; k <= j; k++) 
         {            
-            if (s[k] == firstLetter) 
+            if (s[k] == f) 
             {                 
-                int betterAnswer = fun(i, k - 1, s, dp) + fun(k + 1, j, s, dp);
-                answer = min(answer, betterAnswer);
+                int Ans = fun(i, k - 1, s, dp) + fun(k + 1, j, s, dp);
+                ans = min(ans, Ans);
             }
         }
-        return dp[i][j] = answer;
+        return dp[i][j] = ans;
     }
 public:
     int strangePrinter(string s) {
