@@ -11,6 +11,16 @@ public:
     }
     bool primeSubOperation(vector<int>& nums) {
         int n = nums.size();
+
+        int maxEle = *max_element(nums.begin(), nums.end());
+        vector<int> prevPrime(maxEle + 1, 0);
+
+        for(int i = 2; i< maxEle ; i++)
+        {
+            if(checkPrime(i))   prevPrime[i] = i;
+            else    prevPrime[i] = prevPrime[i-1];
+        }
+
         for(int i = 0 ; i<n; i++)
         {
             int bound;
@@ -20,16 +30,7 @@ public:
 
             if(bound <= 0)  return false;
 
-            int largestPrime = 0;
-            for(int j = bound - 1; j >= 2; j--)
-            {
-                if(checkPrime(j))   
-                {
-                    largestPrime = j;
-                    break;
-                }
-            }
-            
+            int largestPrime = prevPrime[bound - 1];
             nums[i] -= largestPrime;
         }
         return true;
